@@ -155,7 +155,7 @@ module.exports = {
 ##选择开发工具
 + webpack's Watch Mode
 + webpack-dev-server
-* webpack-dev-middleware 
++ webpack-dev-middleware 
 ###观察模式
 命令行工具输入
 <pre><code>webpack --watch</code></pre>
