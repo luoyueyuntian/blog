@@ -1,8 +1,3 @@
----
-date: 2017-10-12 22:20
-status: public
-title: webpack使用指南
----
 
 以下总结来自[webpack中文文档](https://doc.webpack-china.org/guides/)，去掉了中间的详细说明部分，只保留了实际操作部分
 #1.安装
