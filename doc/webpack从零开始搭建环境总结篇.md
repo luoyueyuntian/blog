@@ -106,7 +106,7 @@ module.exports = merge(commonWebpackConfig, {
     devtool: 'source-map'
 });</code></pre>
 + 根目录下新建index.html
-+ src目录下新建index.js文件
++ src目录下新建index.js文件<br/>
 **QAB**
 + 怎样配置HTML文件的路径？<br/>
 使用 html-webpack-plugin 插件
@@ -116,5 +116,5 @@ module.exports = merge(commonWebpackConfig, {
         template: 'index.html',
 })</code></pre>
 
-[一个不错的总结文档--webpack多页应用架构系列]( https://segmentfault.com/a/1190000006863968)
+[一个不错的总结文档--webpack多页应用架构系列]( https://segmentfault.com/a/1190000006863968)<br/>
 也可以看下vue-cli生成的webpack项目的配置，稍微有些不同，如果搞清楚了webpack这些基本配置，基本能看懂
