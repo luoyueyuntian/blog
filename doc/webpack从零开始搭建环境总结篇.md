@@ -1,5 +1,5 @@
 
-# 创建package.json文件
++ 创建package.json文件
 + 创建项目文件夹
 + 执行命令 `npm init`
 + 执行命令 `npm install --save-dev webpack`
