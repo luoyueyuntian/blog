@@ -1,8 +1,3 @@
----
-date: 2017-10-21 22:54
-status: public
-title: webpack从零开始搭建环境总结篇
----
 
 #创建package.json文件
 + 创建项目文件夹
