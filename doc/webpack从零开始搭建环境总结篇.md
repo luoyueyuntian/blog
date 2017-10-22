@@ -17,7 +17,7 @@ html-webpack-plugin 用于将编译完的文件插入到index.html中
 webpack-hot-middleware 用于模块热替换
 webpack-merge 在提取公共配置项后，在开发环境和生产环境中用于配置项的合并
 uglifyjs-webpack-plugin 压缩文件，删除未使用到的代码
-babel-loader 用于转译js文件 > 
+babel-loader 用于转译js文件 
 
 + 创建 src 文件夹（源文件目录）
 + 创建 bulid 文件夹（webpack配置文件目录）
