@@ -35,7 +35,7 @@ HEAD表示当前版本，上一个版本是HEAD^，上上一个版本是HEAD^^�
 <pre><code>git reset --hard HEAD^</code></pre>
 每次执行都可以得到版本号，知道commit id，可以直接回退到指定版本
 <pre><code>git git reset --hard 3628164</code></pre>
-#怎样理解工作区和暂存区（重要概念）
+# 怎样理解工作区和暂存区（重要概念）
 + 工作区（Working Directory）：我们正在编辑的文件目录
 + 版本库（Repository）：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<br/>
 ![Alt 工作区与版本库](../assert/img/git.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
