@@ -1,9 +1,3 @@
----
-date: 2017-10-22 22:07
-status: public
-title: git的使用
----
-
 推荐程 [廖雪峰的官方网站-Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000)
 # 安装
 从[https://git-for-windows.github.io/](https://git-for-windows.github.io/)下载安装包，按默认选项安装。
@@ -44,13 +38,10 @@ HEAD表示当前版本，上一个版本是HEAD^，上上一个版本是HEAD^^�
 #怎样理解工作区和暂存区（重要概念）
 + 工作区（Working Directory）：我们正在编辑的文件目录
 + 版本库（Repository）：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<br/>
-![Alt 工作区与版本库](../assert/img/git.jpg)<br/>
+![Alt 工作区与版本库](../assert/img/git.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
 
-把文件往Git版本库里添加的时候，是分两步执行的：
+###把文件往Git版本库里添加的时候，是分两步执行的：
 第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br/>
-![Alt 工作区与版本库](../assert/img/git-add.jpg)<br/>
+![Alt 工作区与版本库](../assert/img/git-add.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
 第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br/>
-![Alt 工作区与版本库](../assert/img/git-commit.jpg)<br/>
-
-
-
+![Alt 工作区与版本库](../assert/img/git-commit.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
