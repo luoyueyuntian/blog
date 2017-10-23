@@ -1,3 +1,9 @@
+---
+date: 2017-10-22 22:07
+status: public
+title: git的使用
+---
+
 推荐程 [廖雪峰的官方网站-Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000)
 # 安装
 从[https://git-for-windows.github.io/](https://git-for-windows.github.io/)下载安装包，按默认选项安装。
@@ -45,3 +51,12 @@ HEAD表示当前版本，上一个版本是HEAD^，上上一个版本是HEAD^^�
 第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br/>
 ![Alt 工作区与版本库](../assert/img/git-commit.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
 *理解了暂存区，就要注意，git commit是将暂存区的修改提交到本地版本库，如果之前添加到版本跟踪文件，没有提交到暂存区的文件，是不会提价到本地版本库的*
+# 放弃修改
+<pre><code>git checkout -- file</code></pre>
+命令git checkout -- file意思就是，把file文件在工作区的修改全部撤销，这里有两种情况：
++ 一种是file自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
++ 一种是file已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br/>
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+# 放弃跟踪文件
+<pre><code>git rm -- file
+git commit</code></pre>
