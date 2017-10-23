@@ -30,7 +30,7 @@ git config命令的--global参数，表示你这台机器上所有的Git仓库�
 # 查看提交日志
 <pre><code>git log</code></pre>
 加上--pretty=oneline参数，可以设置显示的记录过长时不换行，方便查看
-#版本回退
+# 版本回退
 HEAD表示当前版本，上一个版本是HEAD^，上上一个版本是HEAD^^，往上100个版本可以写HEAD~100
 <pre><code>git reset --hard HEAD^</code></pre>
 每次执行都可以得到版本号，知道commit id，可以直接回退到指定版本
@@ -39,9 +39,9 @@ HEAD表示当前版本，上一个版本是HEAD^，上上一个版本是HEAD^^�
 + 工作区（Working Directory）：我们正在编辑的文件目录
 + 版本库（Repository）：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<br/>
 ![Alt 工作区与版本库](../assert/img/git.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
-
 ### 把文件往Git版本库里添加的时候，是分两步执行的：
 第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br/>
 ![Alt 工作区与版本库](../assert/img/git-add.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
 第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br/>
 ![Alt 工作区与版本库](../assert/img/git-commit.jpg)（注：从廖雪峰的网站上直接拿过来，感觉讲的比较清楚）<br/>
+* 理解了暂存区，就要注意，git commit是将暂存区的修改提交到本地版本库，如果之前添加到版本跟踪文件，没有提交到暂存区的文件，是不会提价到本地版本库的*
