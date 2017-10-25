@@ -36,14 +36,18 @@ Location: http://localhost/checkout<CRLF><br/>
 &lt;CRLF&gt;<br/>
 &lt;script&gt;alert('hello')&lt;/script&gt;
 
-这个页面可能会意外地执行隐藏在URL中的javascript。类似的情况不仅发生在重定向（Location header）上，也有可能发生在其它headers中，如Set-Cookie header。这种攻击如果成功的话，可以做很多事，例如：执行脚本、设置额外的cookie（<CRLF>Set-Cookie: evil=value）等。<br/>
-避免这种攻击的方法，就是过滤所有的response headers，除去header中出现的非法字符，尤其是CRLF。<br/>
-服务器一般会限制request headers的大小。例如Apache server默认限制request header为8K。如果超过8K，Aapche Server将会返回400 Bad Request响应：<br/>
+这个页面可能会意外地执行隐藏在URL中的javascript。类似的情况不仅发生在重定向（Location header）上，也有可能发生在其它headers中，如Set-Cookie header。这种攻击如果成功的话，可以做很多事，例如：执行脚本、设置额外的cookie（<CRLF>Set-Cookie: evil=value）等。
+
+避免这种攻击的方法，就是过滤所有的response headers，除去header中出现的非法字符，尤其是CRLF。
+
+服务器一般会限制request headers的大小。例如Apache server默认限制request header为8K。如果超过8K，Aapche Server将会返回400 Bad Request响应：
+
 对于大多数情况，8K是足够大的。假设应用程序把用户输入的某内容保存在cookie中,就有可能超过8K.攻击者把超过8k的header链接发给受害者,就会被服务器拒绝访问.解决办法就是检查cookie的大小,限制新cookie的总大写，减少因header过大而产生的拒绝访问攻击
 
 ## 四.Cookie攻击
 
-通过Java Script非常容易访问到当前网站的cookie。你可以打开任何网站，然后在浏览器地址栏中输入：javascript:alert(doucment.cookie),立刻就可以看到当前站点的cookie（如果有的话）。攻击者可以利用这个特性来取得你的关键信息。例如，和XSS攻击相配合，攻击者在你的浏览器上执行特定的Java Script脚本，取得你的cookie。假设这个网站仅依赖cookie来验证用户身份，那么攻击者就可以假冒你的身份来做一些事情。<br/>
+通过Java Script非常容易访问到当前网站的cookie。你可以打开任何网站，然后在浏览器地址栏中输入：javascript:alert(doucment.cookie),立刻就可以看到当前站点的cookie（如果有的话）。攻击者可以利用这个特性来取得你的关键信息。例如，和XSS攻击相配合，攻击者在你的浏览器上执行特定的Java Script脚本，取得你的cookie。假设这个网站仅依赖cookie来验证用户身份，那么攻击者就可以假冒你的身份来做一些事情。
+
 现在多数浏览器都支持在cookie上打上HttpOnly的标记,凡有这个标志的cookie就无法通过Java Script来取得,如果能在关键cookie上打上这个标记，就会大大增强cookie的安全性
 
 ## 五.重定向攻击
