@@ -20,3 +20,5 @@
 [理解并解决IE的内存泄漏方式](http://www.cnblogs.com/birdshome/archive/2006/05/28/ie_memoryleak.html)<br/>
 [如何挑选适合的前端框架？](http://www.iteye.com/news/30547)<br/>
 [开箱即用的网站可访问性提升指南](https://669203.kuaizhan.com/41/42/p443858292a2b39)
+
+[Chrome插件(扩展)开发全攻略 ](http://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html)
