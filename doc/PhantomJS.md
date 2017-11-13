@@ -1,6 +1,6 @@
 PhantomJS是一个基于webkit的JavaScript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。PhantomJS的用处可谓非常广泛，诸如网络监测、网页截屏、无需浏览器的 Web 测试、页面访问自动化等。
 
-参考信息：
+## 可供参考的信息：
 [PhantomJS快速入门](http://www.cnblogs.com/front-Thinking/p/4321720.html)
 
 [PhantomJS](http://www.cnblogs.com/firstdream/p/5122798.html)
@@ -24,8 +24,23 @@ PhantomJS是一个基于webkit的JavaScript API。它使用QtWebKit作为它核�
 
 [动态爬虫——selenium2搭载phantomjs入门范例](http://www.cnblogs.com/chenqingyang/p/3772673.html)
 
-应用场合：
+[PhantomJS实现最简单的模拟登录方案](http://www.cnblogs.com/Xjng/p/5125181.html)
+
+[Phantomjs 根据Casperjs源码拓展download方法](http://www.cnblogs.com/kavmors/p/4744445.html)
+
+[基于phantomJS实现web性能监控](http://www.cnblogs.com/ypzh/p/3948465.html)
+
+## 应用场合：
 + web测试,主要是可以又轻又快捷的进行web测试，还不用去再去依赖浏览器，用过selenium的朋友都知道，打开一个浏览器是多么痛苦的事，特别是FireFox，并且他支持很多测试框架，比如RobotFrame， WebDrive等。
 + 页面自动化渲染.可以通过标准的domApi来操作页面元素，并且，你也可以注入Jquery，这样就可以通过jquery来操作页面元素了.
 + 屏幕捕捉,这个好。有的时候case失败了，想捕捉屏幕的时候，用selenium自带的捕捉老是遇到浏览器兼容问题，用这个来捕捉应该会稳定很多、
 + 网络监视.这个我接触的不多，主要说是可以自动分析页面的加载速度，并且还可以导出标准的HAR格式文件。
+
+## 网上提供的一些小技巧
+[Phantomjs 进程通信方式](http://www.cnblogs.com/kavmors/p/4731883.html)
+
+[selenium phantomjs 设置代理ip方法](http://www.cnblogs.com/fly-kaka/p/6483588.html)
+
+[Phantomjs设置浏览器useragent的方式](http://www.cnblogs.com/fly-kaka/p/6137255.html)
+
+[深入浅出ghostbuster剖析NodeJS与PhantomJS的通讯机制](http://www.cnblogs.com/janehlp/p/3423807.html)
