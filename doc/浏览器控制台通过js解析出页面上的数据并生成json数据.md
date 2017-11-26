@@ -5,7 +5,8 @@
 通过定义一个字符串，把所有的内容串起来，打印到控制台，就可以得到一个换好行，直接可以保存到md文件里面的字符串了。
 
 对于获取小米导航里面的数据，我觉得也可以采用这种方式，于是就写了如下代码，在控制台运行，结果确实是我想要的。
-<pre><code>var menuContainer = $("#J_categoryList>li");
+<pre><code>
+var menuContainer = $("#J_categoryList>li");
 var data = [];
 menuContainer.each(function(i, dom) {
     var name = $(dom).children("a.title").text();
@@ -14,7 +15,7 @@ menuContainer.each(function(i, dom) {
         productName: name,
         productArr: productArr
     });
-})
+});
 
 function getChildrenData(containerEle) {
     var result = [];
@@ -24,14 +25,14 @@ function getChildrenData(containerEle) {
         var i;
         for (i = 0; i < length; i++) {
             var idom = $liArr[i];
-            var name = $(idom).text();
+            var name = $(idom).find(".link .text").text();
             var isVarity = $(idom).hasClass("star-goods");
             var imgUrl = $(idom).find("img.thumb").attr("src");
             result.push({
                 productName: name,
                 imgSrc: "./assert/img/" + getImgName(imgUrl),
                 isVarity: isVarity
-            })
+            });
         }
     });
     return result;
@@ -48,3 +49,48 @@ function getImgName(imgUrl) {
 console.log(JSON.stringify(data));
 </code></pre>
 上面这段代码当然也不是一次就写好的，中间也调试了几次，毕竟也不经常这样做，不是太熟。不过作为使用行业知识提高做事情的效率，这个还是值得推广的。
+
+接着上面，上面我实现了从网站上解析出网站上的数据，更进一步，网站上的图片我也是需要下载到本地的，js也是可以实现这个功能的，代码如下：
+<pre><code>var imgs = [];
+var menuContainer = $("#J_categoryList>li");
+menuContainer.each(function(i, dom) {
+    resolveImgSrc($(dom).find("div.children"));
+})
+
+function resolveImgSrc(containerEle) {
+    containerEle.find("ul").each(function(i, dom) {
+        var $liArr = $(dom).find("li");
+        var length = $liArr.length;
+        var i;
+        for (i = 0; i < length; i++) {
+            var idom = $liArr[i];
+            var imgUrl = $(idom).find("img.thumb").attr("src");
+            imgs.push(imgUrl);
+        }
+    });
+}
+
+function unique4(array) {
+    array.sort();
+    var re = [array[0]];
+    for (var i = 1; i < array.length; i++) {
+        if (array[i] !== re[re.length - 1]) {
+            re.push(array[i]);
+        }
+    }
+    return re;
+}
+unique4(imgs).map(function(i) {
+    var a = document.createElement('a');
+    a.setAttribute('download', '');
+    a.href = i;
+    document.body.appendChild(a);
+    a.click();
+})
+</code></pre>
+
+运行上述代码之前，要先把浏览器的默认下载目录改到你想下载到的目录，并确定不是每次下载都询问你保存位置。
+
+运行上面代码时浏览器由于安全策略，会让你确认是否允许同时下载多个文件，点击确认即可。
+
+如果遇到下载文件数量不对的情况，可以先在网页上把导航全部内容浏览一遍，这样确保页面上的内容是完整的，避免部分懒加载的内容还没有加载，页面数据不全。
