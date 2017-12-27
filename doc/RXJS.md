@@ -21,3 +21,5 @@
 [常用rxjs方法的交互图](http://rxmarbles.com/?spm=5176.100239.blogcont65027.13.NXAAK1)
 
 [使用 RxJS 实现 JavaScript 的 Reactive 编程](https://www.oschina.net/translate/rxjs-streams?lang=chs&page=2#)
+
+[rxjs学习入门心得(一)Observable可观察对象](http://blog.csdn.net/nongshuqiner/article/details/78791871)
