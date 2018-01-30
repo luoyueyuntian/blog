@@ -9,7 +9,7 @@
 <li><a href="./doc/指令.md">指令</a></li>
 <li><a href="./doc/控制器之间的通信.md">控制器之间的通信</a></li>
 <li><a href="./doc/服务、控制器与依赖注入.md">服务、控制器与依赖注入</a></li>
-<li><a href="">服务</a>(./doc/服务.md)</li>
+<li><a href="./doc/服务.md">服务</a></li>
 <li><a href="./doc/框架外访问angularjs模块.md">框架外访问angularjs模块</a></li>
 <li><a href="./doc/理解$watch ，$apply 和 $digest --- 理解数据绑定过程.md">理解$watch ，$apply 和 $digest --- 理解数据绑定过程</a></li>
 <li><a href="./doc/谷歌浏览器安装angularJs调试插件Batarang.md">谷歌浏览器安装angularJs调试插件Batarang</a></li>
