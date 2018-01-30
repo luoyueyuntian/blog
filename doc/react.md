@@ -1,1 +1,0 @@
-[React 中文索引](http://nav.react-china.org/)
