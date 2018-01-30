@@ -25,7 +25,9 @@
 
 ### 工具
 <ul>
+
 <li><a href="./doc/angular调试工具augury的安装.md">angular调试工具augury的安装</a></li>
+<li><a href="./doc/React Developer Tools安装.md">React Developer Tools安装</a></li>
 <li><a href="./doc/git的使用.md">git的使用</a></li>
 <li><a href="./doc/vs code 修改md文件预览样式为GitHub风格.md">vs code 修改md文件预览样式为GitHub风格</a></li>
 <li><a href="./doc/将文件目录解析成树形结构.md">将文件目录解析成树形结构</a></li>
