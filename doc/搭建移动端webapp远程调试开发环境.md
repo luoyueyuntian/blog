@@ -27,3 +27,9 @@
 
 ### 如果一切正常，就可以开始调试了
 `debug client`页面最上面的按钮是提供的可调试内容，可依次选择进行相关操作。
+
+参考链接:
+
+[Weinre远程调试工具](https://www.cnblogs.com/shytong/p/5240137.html)
+
+[移动端Web开发调试之Weinre调试教程](http://blog.csdn.net/freshlover/article/details/42640253)
