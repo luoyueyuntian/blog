@@ -78,11 +78,8 @@ preserveAspectRatio属性可以在保持宽高比的情况下强制统一viewBox
 如果align值设为none,图形不在保持宽高比而会缩放来适应视窗，其他所有preserveAspectRatio值都在保持viewBox的宽高比的情况下强制拉伸，并且指定在视窗内如何对齐viewBox。
 
 > align参数使用9个值中的一个或者为none。任何除none之外的值都用来保持宽高比缩放图片，并且还用来在视窗中对齐viewBox。<br/>
-当使用百分比值时，align值类似于background-position。你可以把viewBox当做背景图像。通过align定位和background-position的不同在于，不同于通过一个与视窗相关的点来声明一个特定的viewBox值，它把具体的viewBox“轴”和对应的视窗的“轴”对齐。<br/>
-##### viewBox中的"min-x"、"min-y"、"max-x"和"max-y"、"mid-x"和"mid-y"轴
-> viewBox的&lt;min-x&gt;和&lt;min-y&gt;定义viewBox中的"min-x"和"min-y"轴<br/>
-viewBox的&lt;min-x&gt; + (&lt;width&gt;/2) 和 &lt;min-y&gt; + (&lt;height&gt;/2)定义"mid-x"和"mid-y"轴<br/>
-viewBox的&lt;min-x&gt; + &lt;width&gt; 和 &lt;min-y&gt; + &lt;height&gt;定义"max-x"和"max-y"轴
+当使用百分比值时，align值类似于background-position。你可以把viewBox当做背景图像。通过align定位和background-position的不同在于，不同于通过一个与视窗相关的点来声明一个特定的viewBox值，它把具体的viewBox“轴”和对应的视窗的“轴”对齐。
+
 
 + meetOrSlice也是可选的，默认值为meet。这个属性声明整个viewBox在视窗中是否可见。如果是，它和align参数通过一个或多个空格分隔。meetOrSlice被用来声明viewBox是否会被完全包含在视窗中，或者它是否应该尽可能缩放来覆盖整个视窗，甚至意味着部分的viewBox会被“slice”。
 
@@ -96,6 +93,62 @@ meetOrSlice有两个可选值
 > slice<br/>
 在保持宽高比的情况下，缩放图形直到viewBox覆盖了整个视窗区域。viewBox被缩放到正好覆盖视窗区域（在两个维度上），但是它不会缩放任何超出这个范围的部分。换而言之，它缩放到viewBox的宽高可以正好完全覆盖视窗。<br/>
 在这种情况下，如果viewBox的宽高比不适合视窗，一部分viewBox会扩展超过视窗边界（即，viewBox绘制的区域会比视窗大）。这会导致部分viewBox被切片。
+
+##### viewBox中的"min-x"、"min-y"、"max-x"和"max-y"、"mid-x"和"mid-y"轴
+> viewBox的&lt;min-x&gt;和&lt;min-y&gt;定义viewBox中的"min-x"和"min-y"轴<br/>
+viewBox的&lt;min-x&gt; + (&lt;width&gt;/2) 和 &lt;min-y&gt; + (&lt;height&gt;/2)定义"mid-x"和"mid-y"轴<br/>
+viewBox的&lt;min-x&gt; + &lt;width&gt; 和 &lt;min-y&gt; + &lt;height&gt;定义"max-x"和"max-y"轴
+
+##### aglin的取值
++ none<br/>
+不强制统一缩放。如果必要的话，在不统一（即不保持宽高比）的情况下缩放给定元素的图像内容直到元素的边界盒完全匹配是视窗矩形。<br/>
+换句话说，如果有必要的话viewBox被拉伸或缩放来完全适应整个视窗，不管宽高比。图形也许会扭曲。<br/>
+（注意：如果<align>的值是none，可选的<meetOrSlice>值无效。）
+
++ xMinYMin<br/>
+强制统一缩放<br/>
+视窗X轴的最小值对齐元素viewBox的&lt;min-x&gt;。<br/>
+视窗Y轴的最小值对齐元素viewBox的&lt;min-y&gt;。<br/>
+
++ xMinYMid<br/>
+强制统一缩放。<br/>
+视窗X轴的最小值对齐元素viewBox的&lt;min-x&gt;。<br/>
+视窗Y轴的中间值来对齐元素的viewBox的中间值。
+
++ xMinYMax<br/>
+强制统一缩放。<br/>
+视窗X轴的最小值对齐元素viewBox的&lt;min-x&gt;。<br/>
+视窗X轴的最大值对齐元素的viewBox的&lt;min-y&gt;+&lt;height&gt;。
+
++ xMidYMin
+强制统一缩放。<br/>
+视窗X轴的中间值对齐元素的viewBox的X轴中间值。<br/>
+视窗Y轴的中间值对齐元素的viewBox的 &lt;min-y&gt;。
+
++ xMidYMid (默认值)<br/>
+强制统一缩放。<br/>
+视窗X轴的中间值对齐元素的viewBox的X轴中间值。<br/>
+视窗Y轴的中间值对齐元素的viewBox的Y轴中间值。
+
++ xMidYMax<br/>
+强制统一缩放。<br/>
+视窗X轴的中间值对齐元素的viewBox的X轴中间值。<br/>
+视窗Y轴的最大值对齐元素的viewBox的&lt;min-y&gt;+&lt;height&gt;。
+
++ xMaxYMin<br/>
+强制统一缩放。<br/>
+视窗X轴的最大值对齐元素的viewBox的 &lt;min-x&gt;+&lt;width&gt;。<br/>
+视窗Y轴的最小值对齐元素的viewBox的&lt;min-y&gt;。
+
++ xMaxYMid<br/>
+强制统一缩放。<br/>
+视窗X轴的最大值对齐元素的viewBox的 &lt;min-x&gt;+&lt;width&gt;。<br/>
+视窗Y轴的中间值对齐元素的viewBox的Y轴中间值。
+
++ xMaxYMax<br/>
+强制统一缩放。<br/>
+视窗X轴的最大值对齐元素的viewBox的 &lt;min-x&gt;+&lt;width&gt;。<br/>
+视窗Y轴的最大值对齐元素的viewBox的 &lt;min-y&gt;+&lt;height&gt;。
 
 
 参考文档：[理解SVG坐标系和变换：视窗,viewBox和preserveAspectRatio](https://www.w3cplus.com/html5/svg-coordinate-systems.html)
