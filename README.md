@@ -26,11 +26,12 @@
 + [常用的类库、组件](./doc/数据可视化工具.md)
 
 ### nodejs专题
-+ [对node的理解](nodejs与js的guanxi.md)
-+ [调试nodejs代码](调试nodejs代码.md)
++ [对node的理解](./doc/nodejs与js的guanxi.md)
++ [调试nodejs代码](./doc/调试nodejs代码.md)
++ [node操作文件模块](./doc/node-fs.md)
 
 ### 模块化
-+ [模块化方案的对比](模块化方案的对比.md)
++ [模块化方案的对比](./doc/模块化方案的对比.md)
 
 ### 前端开发环境构建
 + [webpack从零开始搭建环境总结篇](./doc/webpack从零开始搭建环境总结篇.md)
