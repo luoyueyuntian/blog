@@ -29,6 +29,7 @@
 + [对node的理解](./doc/nodejs与js的guanxi.md)
 + [调试nodejs代码](./doc/调试nodejs代码.md)
 + [node操作文件模块](./doc/node-fs.md)
++ [常用nodejs三方包](./doc/常用nodejs.md)
 
 ### 模块化
 + [模块化方案的对比](./doc/模块化方案的对比.md)
