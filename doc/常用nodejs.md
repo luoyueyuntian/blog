@@ -4,16 +4,22 @@
 #### express
 Express 是一个保持最小规模的灵活的 Node.js Web 应用程序开发框架，为 Web 和移动应用程序提供一组强大的功能。
 + [Express —— 官方文档](http://www.expressjs.com.cn/)
++ [github地址](https://github.com/expressjs/express)
 
 
 #### koa
 Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。 通过利用 async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序。
 + [Koa —— 官方文档](https://koa.bootcss.com/)
 
-egg
+#### egg
 Egg.js，为企业级框架和应用而生，是阿里开源的企业级 Node.js 框架
 + [egg —— 官方文档](https://eggjs.org/zh-cn/index.html)
 + [egg —— 源码](https://github.com/eggjs/egg)
+
+#### ThinkJS
+ThinkJS 是一款面向未来开发的 Node.js 框架，整合了大量的项目最佳实践，让企业级开发变得更简单、高效。从 3.0 开始，框架底层基于 Koa 2.x 实现，兼容 Koa 的所有功能。
++ [文档](https://thinkjs.org/)
++ [github地址](https://github.com/thinkjs/thinkjs)
 
 #### Restify
 restify是一个基于Nodejs的REST应用框架，支持服务器端和客户端。restify比起express更专注于REST服务，去掉了express中的template, render等功能，同时强化了REST协议使用，版本化支持，HTTP的异常处理。
@@ -35,11 +41,24 @@ Sequelize 是 Node 的一个 ORM(Object-Relational Mapping) 框架，用来方�
 适用于Node.js的MySQL客户端，侧重于性能。 支持预备语句，非utf8编码，二进制日志协议，压缩，ssl等
 + [mysql2 —— 源码](https://github.com/mysqljs/mysql)
 
+#### elasticsearch-js
+适用于Node.js的官方Elasticsearch客户端库
++ [官方github](https://github.com/elastic/elasticsearch-js)
+
+#### node_redis
+node的redis客户端
++ [github地址](https://github.com/NodeRedis/node_redis)
+
 ## 请求连接
 #### Web Socket - Socket.IO
 Socket.IO支持实时，双向和基于事件的通信。
 它适用于所有平台，浏览器或设备，并同时关注可靠性和速度。
 + [Socket.IO —— 文档](https://socket.io/)
++ [github地址](https://github.com/socketio/socket.io)
+
+#### ws
+最广泛的WebSocket模块，用来创建WebSocket的服务器
++ [github地址](https://github.com/websockets/ws)
 
 #### Request
 Request被设计为进行http调用的最简单方法。 它支持HTTPS，默认情况下遵循重定向。
@@ -66,6 +85,10 @@ log4js是javascript的log框架
 #### apidoc
 apiDoc通过源代码中的API注释创建文档。
 + [apidoc —— 文档](https://apidocjs.com/)
+
+#### slate
+Slate可帮助您创建美观，智能，响应迅速的API文档。
++ [github地址](https://github.com/slatedocs/slate)
 
 
 ## 应用管理
@@ -121,6 +144,21 @@ lodash 实用工具库，封装了诸多对字符串、数组、对象等常见�
 
 + express-validator
 数据验证:
+
++ exceljs
+操作Excel，[文档](https://github.com/exceljs/exceljs/blob/HEAD/README_zh.md)
+
++ chokidar
+对nodejs的fs.watch / fs.watchFile / FSEvents 的包装
+[源码](https://github.com/paulmillr/chokidar)
+
++ node-html-pdf
+将HTML到成pdf， 内如使用phantomjs。
+[源码](https://github.com/marcbachmann/node-html-pdf)
+
++ md5-password-cracker.js
+使用JavaScript Web Workers破解MD5密码
+[源码](https://github.com/feross/md5-password-cracker.js)
 
 ## Express中间件
 + body-parser
