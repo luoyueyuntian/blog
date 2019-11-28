@@ -79,6 +79,7 @@
 + [设计模式](设计模式.md)
 
 ### 工具
++ [前端工具收集](./doc/前端工具收集.md)
 + [git的使用](./doc/git的使用.md)
 + [vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格](./doc/vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格.md)
 + [抓包工具的使用](./doc/抓包工具的使用.md)
