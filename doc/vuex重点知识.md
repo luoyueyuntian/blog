@@ -1,27 +1,16 @@
-vue是视图层的库
+vuex是做什么的
 
-vue的组件化应用
+state
 
-vue的模板语法
+getter
 
-计算属性和侦听器
+mutation
 
-Class 与 Style 绑定
+action
 
-事件处理
+module
 
-表单
+vuex的使用
 
-vue的钩子函数
+目录结构
 
-组件
-
-指令
-
-动画
-
-插件
-
-vue项目的常见组合
-
-vue知名开源组件库
