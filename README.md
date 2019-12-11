@@ -54,6 +54,10 @@
 + [大前端](./doc/大前端.md)
 
 ### 框架组件
+#### react
++ [搭建一个react项目](./doc/react项目搭建.md)
+
+#### RXJS
 + [RXJS](./doc/RXJS.md)
 
 #### angularJs专题
