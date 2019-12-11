@@ -31,6 +31,7 @@
 + [node操作文件模块](./doc/node-fs.md)
 + [Buffer](./doc/node-buffer.md)
 + [常用nodejs三方包](./doc/常用nodejs.md)
++ [npm的使用](./doc/npm使用技巧.md)
 
 ### 模块化
 + [js模块化开发规范](./doc/js模块化开发规范.md)
