@@ -24,3 +24,97 @@
 + 只在重要处定义关键帧
 + 渐变动画分“移动渐变”和“形状渐变”
 
+### js创建动画
+动画是一系列状态改变对应的视图改变而形成的动画。CSS3出来以前，主要是通过改变一个绝对定位元素的`left`和`top`来移动位置，，比如轮播图。通过修改一个元素的`display`来显示隐藏一个元素，比如弹窗。当然也可以通过定时去更好图片来创建逐帧动画。
+
+##### 移动元素
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    position: absolute:
+    top: 0:
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+}
+
+// script
+var el = document.getElementById("el")
+var moveLeft = function () {
+    var left = parseInt(el.style.left || 0)
+    if (left < 400) {
+        el.style.left = (left + 20 < 400 ? left + 20 : 400) + 'px'
+        setTimeout(moveLeft, 30)
+    }
+}
+var moveRight = function () {
+    var left = parseInt(el.style.left || 0)
+    if (left > 10) {
+        el.style.left = (left - 20 > 10 ? left - 20 : 10) + 'px'
+        setTimeout(moveRight, 30)
+    }
+}
+</code></pre>
+
+##### 显示隐藏元素
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+    display: block;
+}
+
+// script
+var el = document.getElementById("el")
+var show = function () {
+    el.style.display = "block"
+}
+var hide = function () {
+    el.style.display = "none"
+}
+</code></pre>
+
+##### 元素展开收缩
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+}
+
+// script
+var el = document.getElementById("el")
+var maxHeight = 200
+var show = function () {
+    var animation = function () {
+        var height = parseInt(el.style.height || maxHeight)
+        console.log(height)
+        if (height < maxHeight) {
+            el.style.height = (height + 20 < maxHeight ? height + 20: maxHeight) + 'px'
+            setTimeout(animation, 20)
+        }
+    }
+    animation()
+}
+var hide = function () {
+    var animation = function () {
+        var height = parseInt(el.style.height || maxHeight)
+        console.log(height)
+        if (height > 0) {
+            el.style.height = (height - 20 > 0 ? height - 20: 0) + 'px'
+            setTimeout(animation, 20)
+        }
+    }
+    animation()
+}
+</code></pre>
