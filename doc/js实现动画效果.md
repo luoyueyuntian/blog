@@ -98,7 +98,6 @@ var maxHeight = 200
 var show = function () {
     var animation = function () {
         var height = parseInt(el.style.height || maxHeight)
-        console.log(height)
         if (height < maxHeight) {
             el.style.height = (height + 20 < maxHeight ? height + 20: maxHeight) + 'px'
             setTimeout(animation, 20)
@@ -109,7 +108,6 @@ var show = function () {
 var hide = function () {
     var animation = function () {
         var height = parseInt(el.style.height || maxHeight)
-        console.log(height)
         if (height > 0) {
             el.style.height = (height - 20 > 0 ? height - 20: 0) + 'px'
             setTimeout(animation, 20)
@@ -117,4 +115,95 @@ var hide = function () {
     }
     animation()
 }
+</code></pre>
+
+#### js修改CSS3属性创建动画
+
+##### 元素渐隐和渐显（通过`opacity`）
+
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+    opacity: 1;
+}
+
+// script
+var el = document.getElementById("el")
+var show = function () {
+    var animation = function () {
+        var opacity = el.style.opacity || 0
+        if (opacity < 1) {
+            el.style.opacity = opacity + 0.1 < 1 ? opacity + 0.1 : 1
+            setTimeout(animation, 20)
+        }
+    }
+    animation()
+}
+var hide = function () {
+    var animation = function () {
+        var opacity = el.style.opacity || 1
+        if (opacity > 0) {
+            el.style.opacity = opacity - 0.1 > 0 ? opacity - 0.1 : 0
+            setTimeout(animation, 20)
+        }
+    }
+    animation()
+}
+</code></pre>
+
+##### 元素闪烁（通过`opacity`）
+
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+    opacity: 1;
+}
+
+// script
+var el = document.getElementById("el")
+var flicker = function () {
+    var opacity = el.style.opacity || 1
+    el.style.opacity = opacity - 0.1 > 0 ? opacity - 0.1 : 1
+    setTimeout(flicker, 20)
+}
+flicker()
+</code></pre>
+
+##### 翻页效果（通过`transform：translateY`）
+
+<pre><code>// HTML
+&lt;div id="el"&gt;&lt;/div&gt;
+
+// style
+#el {
+    width: 100px;
+    height: 100px;
+    background-color: #0099fff;
+    transform-origin: 100% 50%;
+}
+
+// script
+var el = document.getElementById("el")
+var reversal = function () {
+    var status = 1
+    var animation = function () {
+        if (status > -1) {
+            status = status - 0.1 > -1 ? status - 0.1 : -1
+            el.style.transform = 'scaleX(' + status + ')';
+            setTimeout(animation, 30)
+        }
+    }
+    animation()
+}
+reversal()
 </code></pre>
