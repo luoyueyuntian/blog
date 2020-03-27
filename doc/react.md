@@ -99,7 +99,7 @@ react执行完合并后的state更新后，会按顺序执行以下钩子函数
 
 ### 组件的生命周期
 先放一张官方给的组件生命周期流程图
-![react组件生命周期](../assert/img/react_hooks.PNG)
+![react组件生命周期](../assert/img/react_hooks.png)
 组件一般会有三个不同的阶段，第一个是组件的创建阶段，在这个阶段，组件分别执行以下钩子函数：
 + constructor() 初始化state和绑定事件的this
 + static getDerivedStateFromProps()
@@ -116,3 +116,9 @@ react执行完合并后的state更新后，会按顺序执行以下钩子函数
 
 组件的销毁
 + componentWillUnmount()    组件卸载及销毁之前调用
+
+### react实现双向绑定
+react的双向绑定需要自己实现，并不能像angular和vue那样通过一条指令实现。首先是要把input的value绑定到组件的state一个属性上，然后是监听change事件，将新输入的值调用setState更新到state中。
+
+### react的性能优化
+
