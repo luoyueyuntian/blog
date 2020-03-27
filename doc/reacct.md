@@ -104,15 +104,15 @@ react执行完合并后的state更新后，会按顺序执行以下钩子函数
 + constructor() 初始化state和绑定事件的this
 + static getDerivedStateFromProps()
 + render()
-+ componentDidMount()   组件挂载后调用，此时可执行依赖DOM节点的操作，获取数据
++ componentDidMount()   组件挂载后调用，此时可执行依赖DOM节点的操作，请求数据等
 
 
 组件的更新
 + static getDerivedStateFromProps()
-+ shouldComponentUpdate()
++ shouldComponentUpdate()   props 或 state 发生变化后，渲染执行之前调用
 + render()
-+ getSnapshotBeforeUpdate()
-+ componentDidUpdate()
++ getSnapshotBeforeUpdate() DOM更新前调用
++ componentDidUpdate()  组件更新后调用
 
 组件的销毁
-+ componentWillUnmount()
++ componentWillUnmount()    组件卸载及销毁之前调用
