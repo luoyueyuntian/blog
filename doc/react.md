@@ -121,4 +121,18 @@ react执行完合并后的state更新后，会按顺序执行以下钩子函数
 react的双向绑定需要自己实现，并不能像angular和vue那样通过一条指令实现。首先是要把input的value绑定到组件的state一个属性上，然后是监听change事件，将新输入的值调用setState更新到state中。
 
 ### react的性能优化
+shouldComponentUpdate钩子函数可以控制组件的更新，默认总是返回true，一般不需要使用这个钩子函数，但出现可感知的性能问题时，可以覆盖该钩子函数，当prop和state变化后，如果确定不需要更新组件，可以返回false，来跳过后面的生命周期函数执行，从而达到提升性能的效果。
 
+使用React.PureComponent组件来进行浅比较，可以在一些场景下，可以代替shouldComponentUpdate，React.PureComponent使用浅比较来判断是否需要更新组件，当数据结构很复杂时，可能不适用。
+
+### react的diff算法
+diff算法是最小编辑距离问题的应用，对于树的最小编辑距离，复杂度很高，react在处理diff时，并没有期望得出最小的编辑距离，而是作了以下假设，来把复杂度降低到线性。
++ 两个不同类型的元素会产生出不同的树；
++ 开发者可以通过 key prop 来暗示哪些子元素在不同的渲染下能保持稳定；
+
+对于新旧两个组件树，react是从根开始比较，如果二者是不同类型，那么按照上面的第一个假设，那么他们下面的子树也会完全不同，react会用新树完全替换掉旧树。如果类型相同，则会递归往下依次比较，得出新旧两颗树的差异。
+
+在比较列表时，react会按照对应顺序依次对比，当往列表头部插入时，因为错位导致比较结果的差异会比较大，通过加入key的方式，react的diff算法使用key来进行比较，并且采用了不同的算法，能够识别出往列表中插入这种情况，得出最小的差异。
+
+### react的合成事件
+react的事件处理程序中会传入SyntheticEvent，这个是对原生事件对象的包装，他与原生事件对象有相同的接口，有 stopPropagation() 和 preventDefault() 方法。SyntheticEvent会在不同事件中复用，如果需要在其他地方使用SyntheticEvent的属性，可以使用event.persist()来避免复用该对象。
