@@ -134,5 +134,242 @@ diff算法是最小编辑距离问题的应用，对于树的最小编辑距离�
 
 在比较列表时，react会按照对应顺序依次对比，当往列表头部插入时，因为错位导致比较结果的差异会比较大，通过加入key的方式，react的diff算法使用key来进行比较，并且采用了不同的算法，能够识别出往列表中插入这种情况，得出最小的差异。
 
+### react的事件绑定
++ React 事件的命名采用小驼峰式
++ 使用 JSX 语法时需要传入一个函数作为事件处理函数
+<pre><code>&lt;button onClick={eventHander}&gt;submit&lt;/button&gt;</code></pre>
+
+因为使用了合成事件的缘故，在 React 中不能通过返回 false 的方式阻止默认行为，必须显式的使用 preventDefault 。
+
+对于使用了class组件，在jsx中绑定事件时，需要绑定this值，有以下三种方式：
++ 在construct中使用bind进行绑定
+<pre><code>class CustomComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.eventHander = this.eventHander.bind(this);
+  }
+
+  eventHander () {}
+
+  render() {
+    return (
+      &lt;button onClick={this.eventHander}&gt;submit&lt;/button&gt;
+    );
+  }
+}</code></pre>
++ 在定义事件处理器时使用class fields 语法
+<pre><code>class CustomComponent extends React.Component {
+  eventHander = () => {}
+
+  render() {
+    return (
+      &lt;button onClick={this.eventHander}&gt;submit&lt;/button&gt;
+    );
+  }
+}</code></pre>
++ 在jsx中使用箭头函数，在箭头函数内部调用this下的事件处理器
+<pre><code>class LoggingButton extends React.Component {
+  eventHander() {}
+
+  render() {
+    return (
+      &lt;button onClick={() => this.eventHander()}&gt;submit&lt;/button&gt;
+    );
+  }
+}</code></pre>
+
+### 向事件处理程序传递参数
++ 通过箭头函数
+<pre><code>&lt;button onClick={(e) => this.eventHander(param, e)}&gt;edit&lt;/button&gt;</code></pre>
++ 通过 Function.prototype.bind
+<pre><code>&lt;button onClick={this.eventHander.bind(this, param)}&gt;edit&lt;/button&gt;</code></pre>
+
 ### react的合成事件
 react的事件处理程序中会传入SyntheticEvent，这个是对原生事件对象的包装，他与原生事件对象有相同的接口，有 stopPropagation() 和 preventDefault() 方法。SyntheticEvent会在不同事件中复用，如果需要在其他地方使用SyntheticEvent的属性，可以使用event.persist()来避免复用该对象。
+
+可以通过 SyntheticEvent 对象的 nativeEvent 属性来获取浏览器的底层事件对象
+
+### Refs 转发
+Ref 转发是一项将 ref 自动地通过组件传递到其一子组件的方式。
+
+应用：
++ 转发 refs 到 DOM 组件
+<pre><code>class CustomComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.input = React.createRef();
+  }
+  render() {
+    return (
+      &lt;input type="text" ref={this.input} /&gt;
+    );
+  }
+}</code></pre>
+
++ 向下传递ref
+<pre><code>const FancyButton = React.forwardRef((props, ref) => (
+  &lt;button ref={ref} className="FancyButton"/&gt;
+    {props.children}
+  &lt;button/&gt;
+));
+
+// 你可以直接获取 DOM button 的 ref：
+const ref = React.createRef();
+&lt;FancyButton ref={ref}/&gt;Click me!&lt;/FancyButton/&gt;;
+</code></pre>
+
+### 受控组件和非受控组件
+受控组件：表单数据是由 React 组件来管理的
+
+非受控组件:表单数据将交由 DOM 节点来处理。
+
+非受控组件将真实数据储存在 DOM 节点中,使用 ref 从 DOM 节点中获取表单数据。
+
+使用defaultValue 属性来给组件设置初始值
+
+### 组件交互
+父组件访问子组件：父组件访问子组件，需要先拿到子组件的引用，实现这个目的的方式有两个，一个是通过ref，另一个是在父组件中绑定一个set方法，将该方法传给子组件，子组件调用set方法，将自身的引用传递出去。
+<pre><code>class Children extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    method () {
+        // some code
+    }
+    render() {
+        return &lt;div&gt;children&lt;/div&gt;
+    }
+}
+class Parent extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    callChildrenMethod () {
+        this.childrenRef.method()
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Children  ref={this.childrenRef}/&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+<pre><code>class Children extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.prop.setChildrenRef(this)
+    }
+    render() {
+        return &lt;div&gt;children&lt;/div&gt;
+    }
+}
+class Parent extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.children = null
+        this.setChildrenRef = this.setChildrenRef.bind(this)
+    }
+    setChildrenRef (componentRef) {
+        this.children = componentRef
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Children  setChildrenRef={this.setChildrenRef}/&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+子组件访问父组件
+子组件访问父组件，可以把子组件需要的属性和方法通过prop的方式传给子组件
+<pre><code>class Children extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.prop.parentMmethod()
+    }
+    render() {
+        return &lt;div&gt;children&lt;/div&gt;
+    }
+}
+class Parent extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.children = null
+        this.method = this.method.bind(this)
+    }
+    method () {
+        // some code
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Children  parentMethod={this.method}/&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+
+### react的异步组件加载
+创建 asyncComponent 异步加载工具
+<pre><code>import React from 'react'
+
+function asyncComponent(loadComponent){
+    class AsyncComponent extends React.Component{
+        static defaultProps = {
+            loading: &lt;p&gt;Loading&lt;/p&gt;,
+            error: &lt;p&gt;Error&lt;/p&gt;
+        }
+        constructor(props){
+            super(props)
+            this.loaad = this.load.bind(this)
+            this.state = {
+                module: null
+            }
+        }
+
+        componentWillMount(){
+            this.load(this.props)
+        }
+        load(props){
+            this.setState({
+                module: props.loading
+            })
+            loadComponent()
+                .then( m=> {
+                    let Module = m.default ? m.default: m
+                    this.setState({
+                        module: &lt;Module {...props}/&gt;
+                    })
+                }).catch((error)=>{
+                    this.setState({
+                        module: props.error
+                    })
+                    console.log(error)
+                })
+        }
+        render(){
+            return this.state.module
+        }
+    }
+    
+    return AsyncComponent
+}
+
+export default asyncComponent</code></pre>
+
+异步加载react组件
+<pre><code>let Widget = asyncComponent(()=>import(`widgets/${type.charAt(0).toUpperCase()}${type.slice(1)}Chart`))
+&lt;Widget /&gt;</code></pre>
