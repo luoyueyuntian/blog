@@ -151,3 +151,8 @@ devtool: 'inline-source-map'
 
 ##### 插件
 loader只能对一种文件进行处理，而且只在文件的加载阶段处理代码，而plugin可以在构建的任何阶段对任何代码进行处理，所以plugin能够做更多的事情。构建过程中的代码压缩、代码拆分就是通过插件实现的。
+
++ CleanWebpackPlugin：官方推荐的删除上次编译文件的插件
++ HtmlWebpackPlugin：用于将编译完的代码通过script标签插入到HTMl文件中的插件，该插件很重要，我们编译生成的文件，文件名都是动态的，手工引入显然麻烦且不靠谱，使用该插件可以完美处理这些问题，该插件还支持自定义HTML模板，在模板中插入一些内容，控制插入的位置等配置。
++ webpack.HotModuleReplacementPlugin：热加载插件，用于开发环境不熟悉页面更新代码。
++ webpack.NamedModulesPlugin：当开启 HMR 的时候使用该插件会显示模块的相对路径，建议用于开发环境。 
