@@ -31,13 +31,13 @@
 
 ## 安装前端使用的框架和类库
 ##### 安装react
-<pre><code>npm install react -save</code></pre>
+<pre><code>npm install react prop-types -save</code></pre>
 
 ##### 安装react-dom
 <pre><code>npm install react-dom -save</code></pre>
 
 ##### 安装react-redux
-<pre><code>npm install react-redux -save</code></pre>
+<pre><code>npm install redux react-redux -save</code></pre>
 
 ##### 安装react-router-dom
 <pre><code>npm install react-router-dom -save</code></pre>
@@ -101,12 +101,14 @@ webpack只能处理js文件，对于`html`、`css`、`png\jpg\gif`等其他文�
 <pre><code>devServer: {
     hot: true,
     open: true,
+    historyApiFallback: true,
     port: 8800
 },
 devtool: 'inline-source-map'
 </code></pre>
 + `hot: true`表示启用 webpack 的模块热替换特性，当文件修改后，webpack自动编译更新后会自动替换文件内容，浏览器不需要刷新就可以看到修改后的效果
 + `open: true`表示启动`webpack-dev-server`后自动打开浏览器，并加载默认页面
++ `historyApiFallback: true`: 当页面处于使用`HTML5 History API`创建的状态时，刷新页面，后端是无法匹配到对应资源的，结果会是404，该设置可以在没有匹配到任何资源时返回`index.html`，前端通过路由展示对应组件
 + `port: 8800`表示打开的端口，可以不配置，`webpack-dev-server`会自动使用一个未使用的端口来加载页面
 
 `devtool`是用来控制生产`source map`的工具，在开发环境时，我们需要使用source map来定位出问题的代码行数，生产环境则可以不用生成source map，或者生成少量的source map。
