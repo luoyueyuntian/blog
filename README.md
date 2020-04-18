@@ -35,11 +35,11 @@
 + [常用的类库、组件](https://github.com/luoyueyuntian/data-visualization/blob/master/doc/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7.md)
 
 ### nodejs专题
-+ [对node的理解](./doc/nodejs与js的关系.md)
-+ [node操作文件模块](./doc/node-fs.md)
-+ [Buffer](./doc/node-buffer.md)
-+ [常用nodejs三方包](./doc/常用nodejs.md)
-+ [npm的使用](./doc/npm使用技巧.md)
++ [对node的理解](https://github.com/luoyueyuntian/nodejs-learning/blob/master/doc/nodejs与js的关系.md)
++ [node操作文件模块](https://github.com/luoyueyuntian/nodejs-learning/blob/master/doc/node-fs.md)
++ [Buffer](https://github.com/luoyueyuntian/nodejs-learning/blob/master/doc/node-buffer.md)
++ [常用nodejs三方包](https://github.com/luoyueyuntian/nodejs-learning/blob/master/doc/常用nodejs.md)
++ [npm的使用](https://github.com/luoyueyuntian/nodejs-learning/blob/master/doc/npm使用技巧.md)
 
 ### 模块化
 + [js模块化开发规范](./doc/js模块化开发规范.md)
