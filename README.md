@@ -32,7 +32,7 @@
 + [原生js修改元素样式](./doc/原生js修改元素样式.md)
 
 ### 数据可视化专题
-+ [常用的类库、组件](./doc/数据可视化工具.md)
++ [常用的类库、组件](https://github.com/luoyueyuntian/data-visualization/blob/master/doc/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7.md)
 
 ### nodejs专题
 + [对node的理解](./doc/nodejs与js的关系.md)
