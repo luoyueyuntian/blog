@@ -95,7 +95,7 @@
 + [git的使用](./doc/git的使用.md)
 + [vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格](./doc/vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格.md)
 + [抓包工具的使用](./doc/抓包工具的使用.md)
-+ [收集的工具](./doc/收集的工具.md)
++ [收藏的工具](https://github.com/luoyueyuntian/tools-collect)
 
 ### 前端技能应用
 + [xMind逻辑图-HTML-markDown](./doc/xMind逻辑图-HTML-markDown.md)
