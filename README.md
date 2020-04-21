@@ -50,6 +50,7 @@
 + [搭建移动端webapp远程调试开发环境](./doc/搭建移动端webapp远程调试开发环境.md)
 + [angular调试工具augury的安装](./doc/angular调试工具augury的安装.md)
 + [React&nbsp;Developer&nbsp;Tools安装](./doc/React&nbsp;Developer&nbsp;Tools安装.md)
++ [使用mockjs来mock接口数据](./doc/数据mock.md)
 
 ### 前端发展方向
 + [WEB能力技术全集](./doc/WEB能力技术全集.md)
