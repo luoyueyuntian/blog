@@ -60,6 +60,8 @@
 #### react
 + [react 关键知识点](./doc/react.md)
 + [搭建一个react项目](./doc/react项目搭建.md)
++ [react-router如何使用](https://github.com/luoyueyuntian/angular-react-vue/blob/master/doc/react-router.md)
++ [从零开始大家react项目框架，支持react-redux、react-routr、axios、mockjs、eslint等，以及常用功能示例](https://github.com/luoyueyuntian/build-develop-env/blob/master/react-template/doc/%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BAreact%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.md)
 
 #### RXJS
 + [RXJS](./doc/RXJS.md)
