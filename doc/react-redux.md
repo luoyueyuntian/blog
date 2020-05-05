@@ -1,4 +1,4 @@
-`react-redux`是`react`常用的状态管理工具。使用过程中，要区分`redux`和 `react-redux`，二者的功能是不一样的，`redux` 是 JavaScript 状态容器，提供可预测化的状态管理。`redux` 除了可以与`react`搭配外，还可以与其他框架一起使用。在用的过程中，我们所用到的store、reduce、action、dispatch都是 `redux` 提供的内容，而 `react-redux` 中最主要的就是`Provider`组件和`connect`方法。
+`react-redux`是`react`常用的状态管理工具。使用过程中，要区分`redux`和 `react-redux`，二者的功能是不一样的，`redux` 是 JavaScript 状态容器，提供可预测化的状态管理。`redux` 除了可以与`react`搭配外，还可以与其他框架一起使用。在用的过程中，我们所用到的store、reduce、action、dispatch都是 `redux` 提供的内容，而 `react-redux` 中最主要的就是`Provider`和`connect`。
  `Provider`主要用来存储全局store，而`connect`是通过react的组件context特性，将store中的数据和方法以properties属性的方式注入组件。
 
  #### 单向数据流
@@ -100,14 +100,47 @@ const todosReducer = (previousState, action) => {
     }
 }</code></pre>
 
-以上是store.todos的reducer，store下面会有多个属性，所以其他每个属性都会有一个reducer，比如historyReducer、visibilityFilterReducer等等，那么最终就会合成一个能够处理整个store的reducers。redux的combineReducers 就是做这个工作的。
+以上是store.todos的reducer，store下面会有多个属性，所以其他每个属性都会有一个reducer，比如可以有historyReducer、visibilityFilterReducer等等，那么最终就会合成一个能够处理整个store的reducers。redux的combineReducers 就是做这个工作的。
 <pre><code>import { combineReducers } from 'redux'
 export default {
     todos: todosReducer,
     history: historyReducer,
     visibilityFilter: visibilityFilterReducer
 }</code></pre>
+最终store只有一个reducer，他负责管理整个store中数据的更新。
 
-[Redux](https://redux.js.org/introduction/getting-started)
+#### Store
+action描述应该怎么该做数据，reducer负责更新数据，而store则负责把所有的联系在一起，store具有以下职能：
++ 维持应用的 state；
++ 提供 `getState()` 方法获取 state；
++ 提供 `dispatch(action)` 方法更新 state；
++ 通过 `subscribe(listener)` 注册监听器;
++ 通过 `subscribe(listener)` 返回的函数注销监听器。
 
-[react-redux](https://react-redux.js.org/introduction/quick-start)
+可以看出，store持有了state，如果需要修改store，就需要派发action，派发action后，store内部会运行reducer，得到一个新的state，然后通知订阅者执行回调。当然在与react结合时，我们不会直接对store进行操作，而是交给`react-redux`处理。`react-redux`提供了两个模块：
+
+#### Provider
+Provider是一个react容器组件，其接收一个属性：store，被Provider包裹的组件，可以通过connect去包装组件，可以将store中的state注入到组件中。Provider一般应该在最外层，这样所有的组件都可以通过connect访问store中的state。
+
+#### connect
+connect方法可以将store中的state和actionCreater注入到组件中，connect接收两个方法，一个是mapStateToProps，一个是mapDispatchToProps。mapStateToProps可以将state注入到组件中，而mapDispatchToProps可以将actionCreater注入到组件中，使组件可以dispatch action来修改store中的state。
+
+<pre><code>// 返回从store中提取的state,返回值中的属性key可以自定义，不需要与store中的对象key一致
+const mapStateToProps = state => ({ todos: state.todos })
+// 第二个参数可选的，指的是传递给react组件的props
+const mapStateToProps = (state, ownProps) => ({
+  todo: state.todos[ownProps.id]
+})</code></pre>
+
+<pre><code>const mapDispatchToProps = dispatch => {
+  return {
+    // dispatching plain actions
+    increment: () => dispatch({ type: 'INCREMENT' }),
+    decrement: () => dispatch({ type: 'DECREMENT' }),
+    reset: () => dispatch({ type: 'RESET' })
+  }
+}</code></pre>
+
+#### 参考资料
++ [Redux](https://redux.js.org/introduction/getting-started)
++ [react-redux](https://react-redux.js.org/introduction/quick-start)
