@@ -141,6 +141,35 @@ const mapStateToProps = (state, ownProps) => ({
   }
 }</code></pre>
 
+#### 异步的action
+对于从服务端加载数据等异步的事件，上面提到的reducer是无能为力的，因为真正的数据还没有得到，无法立即dispatch action，`redux-thunk`是react的一个中间件，用来提交异步的action，在创建store的时候，可以增加第三个参数-要应用的中间件，代码如下：
+<pre><code>import thunkMiddleware from 'redux-thunk'
+import { createStore, applyMiddleware, compose } from 'redux'
+
+const store = createStore(
+    reducer,
+    defaultState,
+    compose(
+        applyMiddleware( thunkMiddleware)
+    )
+);
+</code></pre>
+
+这样以后，就可以dispatch一个异步的action，异步的actions一个入参为dispatch方法的函数，模板如下：
+<pre><code>// 异步的action creater 返回的是一个函数，这个函数会在http.get执行完成以后异步的dispatch一个action
+const actionCreater = () => {
+    return dispatch => {
+        http.get({url: someUrl}).then(res => {
+            // dispatch 一个 action
+            dispatch({ type: someActionType, data:someData })
+        }).catch(() => {
+            // dispatch 一个 action
+            dispatch({ type: someActionType, data:someData })
+        })
+    }
+}
+</code></pre>
+
 #### 参考资料
 + [Redux](https://redux.js.org/introduction/getting-started)
 + [react-redux](https://react-redux.js.org/introduction/quick-start)
