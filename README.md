@@ -100,6 +100,7 @@
 + [vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格](./doc/vs&nbsp;code&nbsp;修改md文件预览样式为GitHub风格.md)
 + [抓包工具的使用](./doc/抓包工具的使用.md)
 + [收藏的工具](https://github.com/luoyueyuntian/tools-collect)
++ [shell](./doc/shell总结.md)
 
 ### 前端技能应用
 + [xMind逻辑图-HTML-markDown](./doc/xMind逻辑图-HTML-markDown.md)
